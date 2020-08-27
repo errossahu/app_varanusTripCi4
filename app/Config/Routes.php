@@ -31,8 +31,8 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Backend/Login	::index');
-$routes->get('/', 'Rest/test	::index');
-
+$routes->get('/', 'Rest/TestRest	::index');
+$routes->get('/', 'Rest/restType::index');
 
 /**
  * --------------------------------------------------------------------

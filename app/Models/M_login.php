@@ -42,4 +42,18 @@ class M_login extends Model
         
         
     }
+    // public function getType($id_type=false)
+    // {
+    //     if(id_type==null)
+    //     {
+    //         return $this->findAll();
+    //     }
+    //     else{
+    //         return $this->getWhere(array('id_type'=$id_type))
+    //         -> getRowArray();        
+    //     }
+
+
+    // }
+
 }
