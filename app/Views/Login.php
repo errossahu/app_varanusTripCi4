@@ -31,23 +31,31 @@
       <p class="login-box-msg">Sign in to start your session</p>
 
        <?php echo form_open('backend/login/login_admin');
+      
+       
        ?>
         <div class="input-group mb-3">
-          <input type="text" name="user_name" class="form-control" placeholder="User Name">
+          <input id="user_name" type="text" name="user_name" class="form-control" placeholder="User Name">
+          
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
+                  
           </div>
+         
         </div>
+                      <span style="color: red" id="warning" ></span>
+           
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input id="password" type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+          <span style="color: red" id="warning2" ></span>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -59,7 +67,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">LOGIN </button>
+            <button id="submit" type="submit" class="btn btn-primary btn-block">LOGIN </button>
           </div>
           <!-- /.col -->
         </div>
@@ -81,6 +89,50 @@
 <script src="<?=base_urL()?>/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?=base_url()?>/template/dist/js/adminlte.min.js"></script>
+ <!-- <script type="text/javascript">  
+  
+  // Ajax post  
+  $(document).ready(function(){  
+  $("#submit").click(function(){  
+  var user_name = $("#user_name").val();  
+  var password = $("#password").val();  
+  // Returns error message when submitted without req fields.  
+  if(user_name=='')  
+  {  
+                $('#warning').html("User Name Tidak Boleh Kosong *");
+                $("#warning").css("color", "red");
+                $("#btn").attr("disabled",true);  
+  } 
+  else if (password=='')
+  {
+              $('#warning2').html("Password Tidak Boleh Kosong*");
+                $("#warning2").css("color", "red");
 
+  }
+
+  else  
+  {  
+  // AJAX Code To Submit Form.  
+  $.ajax({  
+  type: "POST",  
+  url:'<?php echo base_url('Backend/Login/login_admin'); ?>',
+  data: {user_name:user_name, password: password},  
+  cache: false,  
+  success: function(result){  
+      if(result!=0){  
+          // On success redirect.  
+      window.location.replace(result);  
+      }  
+      else  
+               $('#warning').html("Username is Used*");
+                $("#warning").css("color", "red");
+                $("#btn").attr("disabled",true);;  
+  }  
+  });  
+  }  
+  return false;  
+  });  
+  });  
+  </script>  -->
 </body>
 </html>
